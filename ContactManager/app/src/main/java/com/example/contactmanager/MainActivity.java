@@ -1,14 +1,14 @@
 package com.example.contactmanager;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.contactmanager.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.contactmanager.data.DatabaseHandler;
 import com.example.contactmanager.model.Contact;
 
@@ -29,20 +29,20 @@ public class MainActivity extends AppCompatActivity {
         contactArrayList = new ArrayList<>();
         DatabaseHandler db = new DatabaseHandler(MainActivity.this);
 
-//        Contact a = new Contact("Greg", "91645");
-//        db.addContact(a);
+        Contact a = new Contact("Greg", "91645");
+        db.addContact(a);
 
-//        db.addContact(new Contact("James","213986"));
-//        db.addContact(new Contact("Greg","098765"));
-//        db.addContact(new Contact("Helena","40678765"));
-//        db.addContact(new Contact("Carimo","768345"));
+        db.addContact(new Contact("James","213986"));
+        db.addContact(new Contact("Greg","098765"));
+        db.addContact(new Contact("Helena","40678765"));
+        db.addContact(new Contact("Carimo","768345"));
 
-//        db.addContact(new Contact("Silo","3445"));
-//        db.addContact(new Contact("Santos","6665"));
-//        db.addContact(new Contact("Litos","5344"));
-//        db.addContact(new Contact("Karate","96534"));
-//        db.addContact(new Contact("Guerra","158285"));
-//        db.addContact(new Contact("Gema","78130"));
+        db.addContact(new Contact("Silo","3445"));
+        db.addContact(new Contact("Santos","6665"));
+        db.addContact(new Contact("Litos","5344"));
+        db.addContact(new Contact("Karate","96534"));
+        db.addContact(new Contact("Guerra","158285"));
+        db.addContact(new Contact("Gema","78130"));
 
 
         List<Contact> contactList = db.getAllContacts();

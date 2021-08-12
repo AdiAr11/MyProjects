@@ -23,34 +23,33 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
     public static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            databaseWriteExecutor.execute(() -> {
-
-                ContactDao contactDao = INSTANCE.contactDao();
-                contactDao.deleteAll();
-
-                Contact contact = new Contact("Johny", "actor");
-                contactDao.insert(contact);
-
-                contact = new Contact("depp", "sup");
-                contactDao.insert(contact);
-            });
-        }
-    };
+//    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
+//        @Override
+//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+//            super.onCreate(db);
+//            databaseWriteExecutor.execute(() -> {
+//
+//                ContactDao contactDao = INSTANCE.contactDao();
+//                contactDao.deleteAll();
+//
+//                Contact contact = new Contact("Johny", "actor");
+//                contactDao.insert(contact);
+//
+//                contact = new Contact("depp", "sup");
+//                contactDao.insert(contact);
+//            });
+//        }
+//    };
 
     public static ContactRoomDatabase getDatabase(final Context context){
         if(INSTANCE == null){
             synchronized (ContactRoomDatabase.class){
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ContactRoomDatabase.class, "contact_database").addCallback(sRoomDatabaseCallback).build();
+                            ContactRoomDatabase.class, "contact_database").build();
                 }
             }
         }
-
         return INSTANCE;
     }
 }

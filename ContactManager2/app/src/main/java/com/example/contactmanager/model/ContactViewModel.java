@@ -12,8 +12,9 @@ import java.util.List;
 
 public class ContactViewModel extends AndroidViewModel {
 
-    public static ContactRepository repository;
+    private static ContactRepository repository;
     public final LiveData<List<Contact>> allContacts;
+
 
     public ContactViewModel(@NonNull Application application) {
         super(application);

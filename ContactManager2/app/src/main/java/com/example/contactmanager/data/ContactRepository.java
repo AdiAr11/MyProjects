@@ -10,8 +10,7 @@ import com.example.contactmanager.util.ContactRoomDatabase;
 import java.util.List;
 
 public class ContactRepository {
-
-    private ContactDao contactDao;
+    private final ContactDao contactDao;
     private LiveData<List<Contact>> allContacts;
 
     public ContactRepository(Application application){
@@ -21,7 +20,6 @@ public class ContactRepository {
         allContacts = contactDao.getAllContacts();
 
     }
-
     public LiveData<List<Contact>> getAllData(){
         return allContacts;
     }

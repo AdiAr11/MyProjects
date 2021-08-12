@@ -14,22 +14,13 @@ import java.util.List;
 public interface ContactDao {
 
     //CRUD
-//    @Insert(onConflict = OnConflictStrategy.IGNORE)
-//    void insert(Contact contact);
-//
-//    @Query("DELETE FROM contact_table")
-//    void deleteAll();
-//
-//    @Query("SELECT * FROM contact_table ORDER BY id ASC")
-//    LiveData<List<Contact>> getAllContacts();
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Contact contact);
 
     @Query("DELETE FROM contact_table")
     void deleteAll();
 
-    @Query("SELECT * FROM contact_table ORDER BY name ASC")
+    @Query("SELECT * FROM contact_table ORDER BY id ASC")
     LiveData<List<Contact>> getAllContacts();
 
 }
