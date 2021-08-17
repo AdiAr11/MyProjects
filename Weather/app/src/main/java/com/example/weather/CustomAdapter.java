@@ -39,7 +39,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         String[] parts = time.split(" ");
         holder.time_textView.setText(parts[1]);
         holder.temp_textView.setText(String.format("%s °C", weatherModel.getTemperature()));
-        holder.wind_textView.setText(String.format("%s kmh", weatherModel.getWindspeed()));
+        holder.wind_textView.setText(String.format("%s km/h", weatherModel.getWindspeed()));
         Picasso.get().load(weatherModelList.get(position).getIcon()).into(holder.cloud_imageView);
     }
 
