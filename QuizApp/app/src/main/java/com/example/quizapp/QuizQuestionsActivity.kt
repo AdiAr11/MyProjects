@@ -21,8 +21,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var score = 0
     private var userName: String? = null
 
-    //val activityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){}
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizQuestionsBinding.inflate(layoutInflater)
